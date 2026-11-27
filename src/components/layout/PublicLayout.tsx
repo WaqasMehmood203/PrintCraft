@@ -2,8 +2,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, Menu, MessageCircle, Phone, X } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { ButtonLink } from '@/components/ui/Button';
-import { useAuth } from '@/context/AuthContext';
 import { useSite } from '@/context/SiteContext';
 import { cn, whatsappLink } from '@/lib/utils';
 import { BrandLogo } from './Brand';
@@ -16,7 +14,6 @@ const NAV = [
 ];
 
 function Navbar() {
-  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -36,7 +33,6 @@ function Navbar() {
   }, [open]);
 
   const solid = scrolled || open;
-  const dashboard = user ? '/dashboard' : null;
 
   return (
     <header

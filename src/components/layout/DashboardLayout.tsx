@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { ExternalLink, LogOut, Menu, X, type LucideIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, NavLink, Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import type { Role } from '@shared/constants';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/context/ToastContext';
@@ -22,7 +22,7 @@ export interface NavGroup {
 }
 
 /** Route guard enforcing authenticated user access. */
-export function RequireRole({ role }: { role: Role }) {
+export function RequireRole(_props: { role: Role }) {
   // Login removed; always render children
   return <Outlet />;
 }
